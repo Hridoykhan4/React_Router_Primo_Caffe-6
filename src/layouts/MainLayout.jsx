@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 const MainLayout = () => {
   return (
     <>
-      <header>
+      <header className="min-h-16 sticky top-0 z-50 shadow-sm">
         <Navbar></Navbar>
       </header>
 

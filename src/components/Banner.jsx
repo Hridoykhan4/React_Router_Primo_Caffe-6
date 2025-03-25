@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Banner = () => {
   return (
     <div
-      className="hero min-h-[600px] relative"
+      className={`hero ${motion ? "my-1" : "my-2"} min-h-[600px] relative `}
       style={{
         backgroundImage: `url(${banner})`,
         backgroundSize: "cover",

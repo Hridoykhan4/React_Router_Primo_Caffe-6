@@ -4,19 +4,40 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `${isActive && "text-red-600 font-semibold"}`
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/coffees">Coffees</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `${isActive && "text-red-600 font-semibold"}`
+          }
+          to="/coffees"
+        >
+          Coffees
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `${isActive && "text-red-600 font-semibold"}`
+          }
+          to="/dashboard"
+        >
+          Dashboard
+        </NavLink>
       </li>
     </>
   );
 
   return (
-    <nav className="navbar md:px-10 px-6 bg-base-100 shadow-sm">
+    <nav className="navbar  backdrop-blur-2xl w-11/12 mx-auto bg-white/30 min-h-20  ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,7 +64,9 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to="/" className="text-xl">Primo Cafe</Link>
+        <Link to="/" className="text-xl">
+          Primo Cafe
+        </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
