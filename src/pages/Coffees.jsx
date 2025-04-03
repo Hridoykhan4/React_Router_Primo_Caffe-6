@@ -6,7 +6,7 @@ const Coffees = () => {
   const data = useLoaderData();
 
   const [coffees, setCoffees] = useState(data);
-
+  const [tab, setTab] = useState(null);
   const handleSort = (sortBy) => {
     if (sortBy === "popularity") {
       const sortByPopularity = [...coffees].sort(
@@ -31,14 +31,18 @@ const Coffees = () => {
         </div>
         <div className="flex  gap-4 sm:flex-row flex-col self-start">
           <button
-            onClick={() => handleSort("popularity")}
-            className="btn btn-warning text-white"
+            onClick={() => {
+              handleSort("popularity"), setTab("popularity");
+            }}
+            className={`btn ${tab === "popularity" && "btn-warning"} `}
           >
             Sort By Popularity (DSC)
           </button>
           <button
-            onClick={() => handleSort("rating")}
-            className="btn btn-warning text-white"
+            onClick={() => {
+              handleSort("rating"), setTab("rating");
+            }}
+            className={`btn ${tab === "rating" && "btn-warning"} `}
           >
             Sort By Rating (ASC)
           </button>

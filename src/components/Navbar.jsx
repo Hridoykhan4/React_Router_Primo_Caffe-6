@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || "light");
 
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
 
   const handleTheme = (e) => {
-    const newTheme = e.target.checked ? "dark" : "light";
+    const newTheme = e.target.checked ? "coffee" : "light";
     setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
   };
 
   const links = (
@@ -43,6 +44,16 @@ const Navbar = () => {
           to="/dashboard"
         >
           Dashboard
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            `${isActive && "text-red-600 font-semibold"} `
+          }
+          to="/chart"
+        >
+          Rating Chart
         </NavLink>
       </li>
     </>
@@ -79,14 +90,13 @@ const Navbar = () => {
         <Link to="/" className="text-xl">
           Primo Cafe
         </Link>
-      </div>
-      <div className="navbar-end">
-        <label className="swap swap-rotate">
+        <label className="swap swap-rotate ms-auto">
           <input
             onChange={handleTheme}
             type="checkbox"
+            checked={theme === 'coffee'}
             className="theme-controller"
-            value="synthwave"
+            value="coffee"
           />
 
           {/* sun icon */}
@@ -108,6 +118,7 @@ const Navbar = () => {
           </svg>
         </label>
       </div>
+
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>

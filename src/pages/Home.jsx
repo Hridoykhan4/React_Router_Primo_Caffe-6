@@ -13,14 +13,13 @@ const Home = () => {
         subtitle={`Choose your desired coffee category to browse through specific coffees that fit in your taste.`}
       ></Heading>
 
-      <div className="my-7"> 
+      <div className="my-7">
         <Categories categories={data}></Categories>
       </div>
 
-    <section>
+      <section>
         <Outlet></Outlet>
-    </section>
-     
+      </section>
     </div>
   );
 };

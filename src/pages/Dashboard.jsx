@@ -32,6 +32,7 @@ const Dashboard = () => {
       <div className="grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10 ">
         {coffees.map((coffee) => (
           <Card
+            fromDash={true}
             handleRemove={handleRemove}
             key={coffee.id}
             coffee={coffee}
